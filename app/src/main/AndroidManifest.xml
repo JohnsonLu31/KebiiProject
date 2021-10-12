@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CombindAllApp">
+
+        <activity
+            android:name=".combindallapp.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.example.weather.WeatherMain"
+            android:parentActivityName=".combindallapp.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".combindallapp.MainActivity"/>
+        </activity>
+
+        <activity android:name="com.example.alarmManager.AlarmMain"
+            android:parentActivityName=".combindallapp.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".combindallapp.MainActivity"/>
+        </activity>
+
+        <activity android:name="com.example.musicplayer.ListMusicActivity"
+            android:parentActivityName=".combindallapp.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".combindallapp.MainActivity"/>
+        </activity>
+
+        <activity android:name="com.example.musicplayer.MusicPlayerActivity"
+            android:parentActivityName=".musicplayer.ListMusicActivity"
+            tools:ignore="DuplicateActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".musicplayer.ListMusicActivity" />
+        </activity>
+
+        <activity android:name="com.example.vedioview.ListVideoActivity"
+            android:parentActivityName=".combindallapp.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".combindallapp.MainActivity"/>
+        </activity>
+
+        <activity android:name="com.example.vedioview.VideoPlayerActivity"
+            android:parentActivityName="com.example.vedioview.ListVideoActivity"
+            tools:ignore="DuplicateActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".musicplayer.ListMusicActivity" />
+        </activity>
+
+    </application>
+
+</manifest>

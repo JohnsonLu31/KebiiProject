@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CombindAllApp</string>
+
+    <string-array name="App">
+
+        <item>Weather Report</item>
+        <item>Alarm Manager</item>
+        <item>Music Player</item>
+        <item>Video Player</item>
+
+    </string-array>
+</resources>
