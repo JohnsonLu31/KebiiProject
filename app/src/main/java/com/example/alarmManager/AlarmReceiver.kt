@@ -1,4 +1,4 @@
-package com.example.alarmmanager
+package com.example.alarmManager
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent

@@ -7,6 +7,7 @@ import android.view.Menu
 import android.widget.*
 import com.example.R
 import com.example.alarmManager.AlarmMain
+import com.example.chatBox.ui.ChatBoxActivity
 import com.example.musicplayer.ListMusicActivity
 import com.example.vedioview.ListVideoActivity
 import com.example.weather.WeatherMain
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
                 1 -> startActivity(Intent(this, AlarmMain::class.java))
                 2 -> startActivity(Intent(this, ListMusicActivity::class.java))
                 3 -> startActivity(Intent(this, ListVideoActivity::class.java))
+                4 -> startActivity(Intent(this, ChatBoxActivity::class.java))
             }
         }
     }

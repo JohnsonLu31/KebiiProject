@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.R
-import com.example.alarmmanager.AlarmReceiver
+import com.example.alarmManager.AlarmReceiver
 import com.example.databinding.ActivityMainBinding
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat

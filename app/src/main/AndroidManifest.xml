@@ -76,6 +76,14 @@
                 android:value=".musicplayer.ListMusicActivity" />
         </activity>
 
+        <activity android:name="com.example.chatBox.ui.ChatBoxActivity"
+            android:parentActivityName="com.example.combindallapp.MainActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".musicplayer.ListMusicActivity" />
+        </activity>
+
     </application>
 
 </manifest>
