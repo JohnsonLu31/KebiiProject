@@ -3,6 +3,7 @@ package com.example.combindallapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import android.view.Menu
 import android.widget.*
 import com.example.R
@@ -17,10 +18,13 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var adapter : ArrayAdapter<*>
 
+    private var RECOGNIZER_RESULT = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        speechToText()
 
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, resources.getStringArray(R.array.App))
         lv_listView.adapter = adapter
@@ -33,7 +37,32 @@ class MainActivity : AppCompatActivity() {
                 4 -> startActivity(Intent(this, ChatBoxActivity::class.java))
             }
         }
+        fb_floatbutton.setOnClickListener {
+            val speechintent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+            speechintent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            speechintent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech to text")
+            startActivityForResult(speechintent, RECOGNIZER_RESULT)
+        }
     }
+
+    private fun speechToText() {
+            val speechintent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+            speechintent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            speechintent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech to text")
+            startActivityForResult(speechintent, RECOGNIZER_RESULT)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RECOGNIZER_RESULT && resultCode == RESULT_OK) {
+            val matches = data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+            if (matches?.get(0).toString().contains("weather")) {
+                startActivity(Intent(this, WeatherMain::class.java))
+            }
+        }
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.nav_menu, menu)
 
