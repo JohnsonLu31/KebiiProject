@@ -12,6 +12,7 @@ import com.example.R
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.koushikdutta.ion.Ion
+import kotlinx.android.synthetic.main.weather_activity.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -72,18 +73,34 @@ class WeatherMain : AppCompatActivity() {
                     val status = result.get("weather").asJsonArray
                     val description = status.get(0).asJsonObject.get("description").asString
 
+
+
+                    /*換成中文(保留)*/val weathermain = status.get(0).asJsonObject.get("main").asString
+                        var report: String = ""
+                        if (weathermain.contains("Sun")) {
+                            report = "好天氣"
+                        }
+                        if (weathermain.contains("Cloud")) {
+                            report = "多雲"
+                        }
+                        if (weathermain.contains("Rain")) {
+                            report = "下雨"
+                        }
+                    /**/
+
                     //TTS
                     textToSpeech = TextToSpeech(this) { p0 ->
                         if (p0 == TextToSpeech.SUCCESS) {
                             textToSpeech.language = Locale.ENGLISH
                             textToSpeech.setSpeechRate(0.5f)
-                            textToSpeech.speak("Today's weather in $city is $description, and the temperature is $temp degree", TextToSpeech.QUEUE_FLUSH, null)
+                            textToSpeech.speak("today's weather in $city city is $description in $temp degree", TextToSpeech.QUEUE_FLUSH, null)
                         }
                     }
 
                     val weather = result.get("weather").asJsonArray
                     val icon = weather.get(0).asJsonObject.get("icon").asString
                     loadIcon(icon)
+
                     
                     val coord: JsonObject = result.get("coord").asJsonObject
                     val lon = coord.get("lon").asDouble
@@ -113,12 +130,26 @@ class WeatherMain : AppCompatActivity() {
                         val icon = daily.get(i-1).asJsonObject.get("weather").asJsonArray.get(0).asJsonObject.get("icon").asString
                         val description = daily.get(1).asJsonObject.get("weather").asJsonArray.get(0).asJsonObject.get("description").asString
                         weatherList.add(Weather(date, timeZone, temp, icon))
+
+
+                        /*換成中文(保留)*/val weathermain = daily.get(i-1).asJsonObject.get("weather").asJsonArray.get(0).asJsonObject.get("main").asString
+                            var report: String = ""
+                            if (weathermain.contains("Sun")) {
+                                report = "好天氣"
+                            }
+                            if (weathermain.contains("Cloud")) {
+                                report = "多雲"
+                            }
+                            if (weathermain.contains("Rain")) {
+                                report = "下雨"
+                            }/**/
+
                         //TTS
                         textToSpeech = TextToSpeech(this) { p0 ->
                             if (p0 == android.speech.tts.TextToSpeech.SUCCESS) {
                                 textToSpeech.language = java.util.Locale.ENGLISH
                                 textToSpeech.setSpeechRate(0.5f)
-                                textToSpeech.speak("And tomorrow's weather will be $description in $temptts  degree", android.speech.tts.TextToSpeech.QUEUE_FLUSH, null)
+                                textToSpeech.speak("And tomorrow's weather is $description $temptts degree", android.speech.tts.TextToSpeech.QUEUE_FLUSH, null)
                             }
                         }
                     }

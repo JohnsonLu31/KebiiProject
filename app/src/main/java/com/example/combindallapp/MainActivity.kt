@@ -7,7 +7,7 @@ import android.speech.RecognizerIntent
 import android.view.Menu
 import android.widget.*
 import com.example.R
-import com.example.alarmManager.AlarmMain
+import com.example.alarmClock.AlarmClockMain
 import com.example.chatBox.ui.ChatBoxActivity
 import com.example.musicplayer.ListMusicActivity
 import com.example.vedioview.ListVideoActivity
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var adapter : ArrayAdapter<*>
+    private lateinit var adapter: ArrayAdapter<*>
 
     private var RECOGNIZER_RESULT = 1
 
@@ -26,30 +26,41 @@ class MainActivity : AppCompatActivity() {
 
         speechToText()
 
-        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, resources.getStringArray(R.array.App))
+        adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1,
+            resources.getStringArray(R.array.App)
+        )
         lv_listView.adapter = adapter
-        lv_listView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
-            when(position){
-                0 -> startActivity(Intent(this, WeatherMain::class.java))
-                1 -> startActivity(Intent(this, AlarmMain::class.java))
-                2 -> startActivity(Intent(this, ListMusicActivity::class.java))
-                3 -> startActivity(Intent(this, ListVideoActivity::class.java))
-                4 -> startActivity(Intent(this, ChatBoxActivity::class.java))
+        lv_listView.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
+                when (position) {
+                    0 -> startActivity(Intent(this, WeatherMain::class.java))
+                    1 -> startActivity(Intent(this, AlarmClockMain::class.java))
+                    2 -> startActivity(Intent(this, ListMusicActivity::class.java))
+                    3 -> startActivity(Intent(this, ListVideoActivity::class.java))
+                    4 -> startActivity(Intent(this, ChatBoxActivity::class.java))
+                }
             }
-        }
         fb_floatbutton.setOnClickListener {
             val speechintent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-            speechintent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            speechintent.putExtra(
+                RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+            )
             speechintent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech to text")
             startActivityForResult(speechintent, RECOGNIZER_RESULT)
         }
     }
 
     private fun speechToText() {
-            val speechintent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-            speechintent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-            speechintent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech to text")
-            startActivityForResult(speechintent, RECOGNIZER_RESULT)
+        val speechintent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        speechintent.putExtra(
+            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+        )
+        speechintent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech to text")
+        startActivityForResult(speechintent, RECOGNIZER_RESULT)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -59,6 +70,18 @@ class MainActivity : AppCompatActivity() {
             val matches = data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
             if (matches?.get(0).toString().contains("weather")) {
                 startActivity(Intent(this, WeatherMain::class.java))
+            }
+            if (matches?.get(0).toString().contains("alarm")) {
+                startActivity(Intent(this, AlarmClockMain::class.java))
+            }
+            if (matches?.get(0).toString().contains("music")) {
+                startActivity(Intent(this, ListMusicActivity::class.java))
+            }
+            if (matches?.get(0).toString().contains("video")) {
+                startActivity(Intent(this, ListVideoActivity::class.java))
+            }
+            if (matches?.get(0).toString().contains("chat")) {
+                startActivity(Intent(this, ChatBoxActivity::class.java))
             }
         }
     }
@@ -70,10 +93,11 @@ class MainActivity : AppCompatActivity() {
         val searchView = search?.actionView as SearchView
         searchView.queryHint = "Search Something!"
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
+
             override fun onQueryTextChange(newText: String?): Boolean {
                 adapter.filter.filter(newText)
                 return true
@@ -82,3 +106,4 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 }
+
