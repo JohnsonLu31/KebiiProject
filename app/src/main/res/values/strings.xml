@@ -8,6 +8,10 @@
         <item>Music Player</item>
         <item>Video Player</item>
         <item>Chat Box</item>
+        <item>YoutubeVideo</item>
 
     </string-array>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

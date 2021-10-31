@@ -12,6 +12,7 @@ import com.example.chatBox.ui.ChatBoxActivity
 import com.example.musicplayer.ListMusicActivity
 import com.example.vedioview.ListVideoActivity
 import com.example.weather.WeatherMain
+import com.example.youtubevideo.YoututbevideoMainActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                     2 -> startActivity(Intent(this, ListMusicActivity::class.java))
                     3 -> startActivity(Intent(this, ListVideoActivity::class.java))
                     4 -> startActivity(Intent(this, ChatBoxActivity::class.java))
+                    5 -> startActivity(Intent(this, YoututbevideoMainActivity::class.java))
                 }
             }
         fb_floatbutton.setOnClickListener {
@@ -81,6 +83,9 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, ListVideoActivity::class.java))
             }
             if (matches?.get(0).toString().contains("chat")) {
+                startActivity(Intent(this, ChatBoxActivity::class.java))
+            }
+            if (matches?.get(0).toString().contains("youtube")) {
                 startActivity(Intent(this, ChatBoxActivity::class.java))
             }
         }

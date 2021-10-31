@@ -8,11 +8,18 @@
         <entry key="..\:/CombindAllApp/app/src/main/res/drawable/background.xml" value="0.12962962962962962" />
         <entry key="..\:/CombindAllApp/app/src/main/res/drawable/border_button.xml" value="0.11851851851851852" />
         <entry key="..\:/CombindAllApp/app/src/main/res/drawable/border_edittext.xml" value="0.11851851851851852" />
+        <entry key="..\:/CombindAllApp/app/src/main/res/drawable/ic_add.xml" value="0.38229166666666664" />
         <entry key="..\:/CombindAllApp/app/src/main/res/drawable/ic_mic.xml" value="0.14629629629629629" />
         <entry key="..\:/CombindAllApp/app/src/main/res/drawable/round_mic.xml" value="0.3764102564102564" />
         <entry key="..\:/CombindAllApp/app/src/main/res/layout/activity_list_music.xml" value="0.365625" />
         <entry key="..\:/CombindAllApp/app/src/main/res/layout/activity_list_video.xml" value="0.36614583333333334" />
         <entry key="..\:/CombindAllApp/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/CombindAllApp/app/src/main/res/layout/activity_youtubevideo_add.xml" value="0.36614583333333334" />
+        <entry key="..\:/CombindAllApp/app/src/main/res/layout/activity_youtubevideo_favorite.xml" value="0.36614583333333334" />
+        <entry key="..\:/CombindAllApp/app/src/main/res/layout/activity_youtubevideo_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/CombindAllApp/app/src/main/res/layout/activity_youtubevideo_update.xml" value="0.36614583333333334" />
+        <entry key="..\:/CombindAllApp/app/src/main/res/layout/activity_youtubevideo_youtube.xml" value="0.36614583333333334" />
+        <entry key="..\:/CombindAllApp/app/src/main/res/layout/activity_yoututbevideo_update.xml" value="0.36614583333333334" />
         <entry key="..\:/CombindAllApp/app/src/main/res/layout/alarm_activity.xml" value="0.36614583333333334" />
         <entry key="..\:/CombindAllApp/app/src/main/res/layout/alarm_main.xml" value="0.36614583333333334" />
         <entry key="..\:/CombindAllApp/app/src/main/res/layout/chatbox_main.xml" value="0.10648148148148148" />
@@ -24,6 +31,9 @@
         <entry key="..\:/CombindAllApp/app/src/main/res/layout/music_activity.xml" value="0.1925925925925926" />
         <entry key="..\:/CombindAllApp/app/src/main/res/layout/video_activity.xml" value="0.36614583333333334" />
         <entry key="..\:/CombindAllApp/app/src/main/res/layout/weather_activity.xml" value="0.1638888888888889" />
+        <entry key="..\:/CombindAllApp/app/src/main/res/layout/youtubevideo_my_row.xml" value="0.36614583333333334" />
+        <entry key="..\:/CombindAllApp/app/src/main/res/layout/youtubevideo_nav_header.xml" value="0.36614583333333334" />
+        <entry key="..\:/CombindAllApp/app/src/main/res/menu/data_menu.xml" value="0.36614583333333334" />
         <entry key="..\:/CombindAllApp/app/src/main/res/menu/nav_menu.xml" value="0.36614583333333334" />
       </map>
     </option>

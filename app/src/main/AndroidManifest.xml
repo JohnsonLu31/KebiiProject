@@ -5,6 +5,9 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="RECORD_AUDIO" />
 
     <queries>
         <intent>
@@ -83,6 +86,32 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".musicplayer.ListMusicActivity" />
         </activity>
+
+        <activity android:name="com.example.youtubevideo.YoututbevideoMainActivity"
+            android:label="YouttubeVideo"
+            android:parentActivityName="com.example.combindallapp.MainActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".musicplayer.ListMusicActivity" />
+        </activity>
+
+        <activity
+            android:name=".youtubevideo.FavoriteActivity"
+            android:label="My Favorite"
+            android:parentActivityName=".youtubevideo.YoututbevideoMainActivity" />
+        <activity
+            android:name=".youtubevideo.YoutubeActivity"
+            android:label="Youtube Player"
+            android:parentActivityName=".youtubevideo.YoututbevideoMainActivity" />
+        <activity
+            android:name=".youtubevideo.UpdateActivity"
+            android:label="Video Data"
+            android:parentActivityName=".youtubevideo.YoututbevideoMainActivity" />
+        <activity
+            android:name=".youtubevideo.AddActivity"
+            android:label="Adding Video"
+            android:parentActivityName=".youtubevideo.YoututbevideoMainActivity" />
 
     </application>
 
