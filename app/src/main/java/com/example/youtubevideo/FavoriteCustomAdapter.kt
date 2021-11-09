@@ -15,7 +15,7 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.R
 
-class CustomAdapter(private var activity: Activity, private var context: Context, private var book_id: ArrayList<String>, private var book_title: ArrayList<String>, private var book_author: ArrayList<String>, private var book_pages: ArrayList<String>): RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
+class FavoriteCustomAdapter(private var activity: Activity, private var context: Context, private var book_id: ArrayList<String>, private var book_title: ArrayList<String>, private var book_author: ArrayList<String>, private var book_pages: ArrayList<String>): RecyclerView.Adapter<FavoriteCustomAdapter.MyViewHolder>() {
 
 
     @SuppressLint("InflateParams")
@@ -84,7 +84,7 @@ class CustomAdapter(private var activity: Activity, private var context: Context
         builder.setTitle("Delete ${book_title[position]} ?")
         builder.setMessage("Are you sure you want to delete ${book_title[position]} ?")
         builder.setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
-            val myDB = MyDatabaseHelper(context)
+            val myDB = FavoriteMyDatabaseHelper(context)
             myDB.deleteOneRow(book_id[position])
             Log.d("confirm ID", "ID -> ${book_id[position]}")
             activity.recreate()

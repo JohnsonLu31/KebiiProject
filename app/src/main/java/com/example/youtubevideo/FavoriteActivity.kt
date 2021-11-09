@@ -16,12 +16,12 @@ class FavoriteActivity : AppCompatActivity() {
     lateinit var author: String
     lateinit var youtubeID: String
 
-    private val myDB = MyDatabaseHelperFavorite(this)
+    private val myDB = FavoriteMyDatabaseHelper(this)
     private var book_id = ArrayList<String>()
     private var book_title = ArrayList<String>()
     private var book_author = ArrayList<String>()
     private var book_pages = ArrayList<String>()
-    private val customAdapter = CustomAdapter(this, this, book_id, book_title, book_author, book_pages)
+    private val customAdapter = FavoriteCustomAdapter(this, this, book_id, book_title, book_author, book_pages)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

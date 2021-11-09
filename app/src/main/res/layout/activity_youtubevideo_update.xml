@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Book Title"
+        android:hint="Youtube Title"
         android:inputType="textPersonName"
         android:textSize="20sp" />
 
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Book Author"
+        android:hint="Youtube Description"
         android:inputType="textPersonName"
         android:textSize="20sp" />
 
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Number of pages"
+        android:hint="Youtube ID"
         android:inputType="textPersonName"
         android:textSize="20sp" />
 
@@ -47,15 +47,6 @@
         android:textSize="20sp"
         android:text="Update" />
 
-
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_margin="10dp"
-        android:textSize="20sp"
-        android:textColor="#FF00"
-        android:text="Delete" />
 
     <Button
         android:id="@+id/delete_favorite_button"

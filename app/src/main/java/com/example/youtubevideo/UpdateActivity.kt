@@ -2,7 +2,6 @@ package com.example.youtubevideo
 
 import android.app.AlertDialog
 import android.content.DialogInterface
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -16,7 +15,6 @@ class UpdateActivity : AppCompatActivity() {
     private lateinit var author_input: EditText
     private lateinit var pages_input: EditText
     private lateinit var update_button: Button
-    private lateinit var delete_button: Button
     private lateinit var delete_favorite_button: Button
 
     lateinit var id: String
@@ -32,7 +30,6 @@ class UpdateActivity : AppCompatActivity() {
         author_input = findViewById(R.id.author_input2)
         pages_input = findViewById(R.id.pages_input2)
         update_button = findViewById(R.id.update_button)
-        delete_button = findViewById(R.id.delete_button)
         delete_favorite_button = findViewById(R.id.delete_favorite_button)
 
         //First we call this
@@ -53,10 +50,6 @@ class UpdateActivity : AppCompatActivity() {
             myDB.updateData(id, title, author, pages)
         }
 
-        delete_button.setOnClickListener {
-
-            confirmDialog()
-        }
 
         delete_favorite_button.setOnClickListener {
 
@@ -83,7 +76,7 @@ class UpdateActivity : AppCompatActivity() {
         }
     }
     
-    fun confirmDialog() {
+    /*fun confirmDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Delete $title ?")
         builder.setMessage("Are you sure you want to delete $title ?")
@@ -96,14 +89,14 @@ class UpdateActivity : AppCompatActivity() {
 
         })
         builder.create().show()
-    }
+    }*/
 
     fun confirmDialogFav() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Delete $title ?")
         builder.setMessage("Are you sure you want to delete $title ?")
         builder.setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
-            val myDB = MyDatabaseHelperFavorite(this)
+            val myDB = FavoriteMyDatabaseHelper(this)
             myDB.deleteOneRow(id)
             finish()
         })

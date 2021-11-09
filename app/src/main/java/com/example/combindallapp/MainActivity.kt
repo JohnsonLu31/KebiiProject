@@ -1,6 +1,10 @@
 package com.example.combindallapp
 
+import android.annotation.SuppressLint
+import android.app.PendingIntent
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.Intent.FILL_IN_ACTION
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -19,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var adapter: ArrayAdapter<*>
 
-    private var RECOGNIZER_RESULT = 1
+    private var RECOGNIZER_RESULT = 11
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
             )
             speechintent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech to text")
+
             startActivityForResult(speechintent, RECOGNIZER_RESULT)
         }
     }
@@ -86,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, ChatBoxActivity::class.java))
             }
             if (matches?.get(0).toString().contains("youtube")) {
-                startActivity(Intent(this, ChatBoxActivity::class.java))
+                startActivity(Intent(this, YoututbevideoMainActivity::class.java))
             }
         }
     }

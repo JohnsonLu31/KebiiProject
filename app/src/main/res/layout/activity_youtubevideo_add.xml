@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Book Title"
+        android:hint="Youtube Title"
         android:inputType="textPersonName"
         android:textSize="20sp" />
 
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Book Author"
+        android:hint="Youtube Description"
         android:inputType="textPersonName"
         android:textSize="20sp" />
 
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Number of pages"
+        android:hint="Youtube ID"
         android:inputType="textPersonName"
         android:textSize="20sp" />
 

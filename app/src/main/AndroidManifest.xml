@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="RECORD_AUDIO" />
@@ -22,7 +22,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CombindAllApp">
-
         <activity
             android:name=".combindallapp.MainActivity"
             android:exported="true">
@@ -32,70 +31,65 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.weather.WeatherMain"
+        <activity
+            android:name=".weather.WeatherMain"
             android:parentActivityName=".combindallapp.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".combindallapp.MainActivity"/>
+                android:value=".combindallapp.MainActivity" />
         </activity>
-
-        <activity android:name="com.example.alarmClock.AlarmClockMain"
+        <activity
+            android:name=".alarmClock.AlarmClockMain"
             android:parentActivityName=".combindallapp.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".combindallapp.MainActivity"/>
+                android:value=".combindallapp.MainActivity" />
         </activity>
-
-        <activity android:name="com.example.musicplayer.ListMusicActivity"
+        <activity
+            android:name=".musicplayer.ListMusicActivity"
             android:parentActivityName=".combindallapp.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".combindallapp.MainActivity"/>
+                android:value=".combindallapp.MainActivity" />
         </activity>
-
-        <activity android:name="com.example.musicplayer.MusicPlayerActivity"
+        <activity
+            android:name=".musicplayer.MusicPlayerActivity"
             android:parentActivityName=".musicplayer.ListMusicActivity"
             tools:ignore="DuplicateActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".musicplayer.ListMusicActivity" />
         </activity>
-
-        <activity android:name="com.example.vedioview.ListVideoActivity"
+        <activity
+            android:name=".vedioview.ListVideoActivity"
             android:parentActivityName=".combindallapp.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".combindallapp.MainActivity"/>
+                android:value=".combindallapp.MainActivity" />
         </activity>
-
-        <activity android:name="com.example.vedioview.VideoPlayerActivity"
-            android:parentActivityName="com.example.vedioview.ListVideoActivity"
+        <activity
+            android:name=".vedioview.VideoPlayerActivity"
+            android:parentActivityName=".vedioview.ListVideoActivity"
             tools:ignore="DuplicateActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".musicplayer.ListMusicActivity" />
         </activity>
-
-        <activity android:name="com.example.chatBox.ui.ChatBoxActivity"
-            android:parentActivityName="com.example.combindallapp.MainActivity">
-
+        <activity
+            android:name=".chatBox.ui.ChatBoxActivity"
+            android:parentActivityName=".combindallapp.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".musicplayer.ListMusicActivity" />
         </activity>
-
-        <activity android:name="com.example.youtubevideo.YoututbevideoMainActivity"
-            android:label="YouttubeVideo"
-            android:parentActivityName="com.example.combindallapp.MainActivity">
-
+        <activity
+            android:name=".youtubevideo.YoututbevideoMainActivity"
+            android:label="YoutubeVideo"
+            android:parentActivityName=".combindallapp.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".musicplayer.ListMusicActivity" />
         </activity>
-
         <activity
             android:name=".youtubevideo.FavoriteActivity"
             android:label="My Favorite"
@@ -112,7 +106,10 @@
             android:name=".youtubevideo.AddActivity"
             android:label="Adding Video"
             android:parentActivityName=".youtubevideo.YoututbevideoMainActivity" />
-
+        <activity
+            android:name=".youtubevideo.WebviewAcivity"
+            android:label="Youtube"
+            android:parentActivityName=".youtubevideo.YoututbevideoMainActivity" />
     </application>
 
 </manifest>

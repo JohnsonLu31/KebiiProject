@@ -20,6 +20,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import java.util.ArrayList
 import com.example.R
+import com.example.combindallapp.MainActivity
 
 class YoututbevideoMainActivity : AppCompatActivity() {
 
@@ -75,9 +76,8 @@ class YoututbevideoMainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId) {
-                R.id.Item1 -> startActivity(Intent(this, FavoriteActivity::class.java))
-                R.id.Item2 -> Toast.makeText(applicationContext, "Clicked Item 2", Toast.LENGTH_SHORT).show()
-                R.id.Item3 -> Toast.makeText(applicationContext, "Clicked Item 3", Toast.LENGTH_SHORT).show()
+                R.id.favorite -> startActivity(Intent(this, FavoriteActivity::class.java))
+                R.id.home -> startActivity(Intent(this, MainActivity::class.java))
             }
             true
         }
@@ -125,9 +125,7 @@ class YoututbevideoMainActivity : AppCompatActivity() {
             confirmDialog()
         }
         if (item.itemId == R.id.youtube) {
-            val site = Intent(Intent.ACTION_VIEW)
-            site.data = Uri.parse("https://www.youtube.com/")
-            startActivity(site)
+            startActivity(Intent(this, WebviewAcivity::class.java))
         }
         return super.onOptionsItemSelected(item)
     }
