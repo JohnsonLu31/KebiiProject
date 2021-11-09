@@ -40,7 +40,8 @@
         </activity>
         <activity
             android:name=".alarmClock.AlarmClockMain"
-            android:parentActivityName=".combindallapp.MainActivity">
+            android:parentActivityName=".combindallapp.MainActivity"
+            android:noHistory="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".combindallapp.MainActivity" />

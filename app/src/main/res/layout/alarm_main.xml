@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".alarmClock.AlarmClockMain">
 
     <TextClock
         android:id="@+id/tv_time"
@@ -15,11 +15,18 @@
         android:textSize="50sp"
         android:textColor="@color/black"/>
 
+    <Switch
+        android:id="@+id/sw_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
     <TimePicker
         android:id="@+id/tp_timepicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:timePickerMode="spinner"
         android:layout_marginTop="10dp"/>
 
 </LinearLayout>

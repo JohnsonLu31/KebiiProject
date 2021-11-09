@@ -14,4 +14,15 @@
 
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+    <string-array name="Application_name">
+
+        <item>Weather</item>
+        <item>Alarm</item>
+        <item>Music</item>
+        <item>Video</item>
+        <item>Chat</item>
+        <item>Youtube</item>
+
+    </string-array>
 </resources>
