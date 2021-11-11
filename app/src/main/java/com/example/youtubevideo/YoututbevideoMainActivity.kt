@@ -125,7 +125,9 @@ class YoututbevideoMainActivity : AppCompatActivity() {
             confirmDialog()
         }
         if (item.itemId == R.id.youtube) {
-            startActivity(Intent(this, WebviewAcivity::class.java))
+            val site = Intent(Intent.ACTION_VIEW)
+            site.data = Uri.parse("https://www.youtube.com/")
+            startActivity(site)
         }
         return super.onOptionsItemSelected(item)
     }

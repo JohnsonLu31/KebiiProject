@@ -17,12 +17,12 @@
 
     <string-array name="Application_name">
 
-        <item>Weather</item>
-        <item>Alarm</item>
-        <item>Music</item>
-        <item>Video</item>
-        <item>Chat</item>
-        <item>Youtube</item>
+        <item>weather</item>
+        <item>alarm</item>
+        <item>music</item>
+        <item>video</item>
+        <item>speaking</item>
+        <item>youtube</item>
 
     </string-array>
 </resources>

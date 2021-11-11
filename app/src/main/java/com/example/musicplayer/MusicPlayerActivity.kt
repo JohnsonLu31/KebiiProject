@@ -147,4 +147,10 @@ class MusicPlayerActivity : AppCompatActivity() {
         musicPlayer.setVolume(0.5f, 0.5f)
         Log.d("Main_Activity", Thread.currentThread().name)
     }
+
+    override fun onDestroy() {
+        musicPlayer.stop()
+        Log.d("Test", "Stop successfully")
+        super.onDestroy()
+    }
 }

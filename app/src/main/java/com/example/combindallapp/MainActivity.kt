@@ -21,6 +21,7 @@ import com.example.youtubevideo.YoututbevideoMainActivity
 import com.nuwarobotics.service.IClientId
 import com.nuwarobotics.service.agent.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -78,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         startActivityForResult(speechintent, RECOGNIZER_RESULT)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == RECOGNIZER_RESULT && resultCode == RESULT_OK) {
@@ -102,7 +103,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, YoututbevideoMainActivity::class.java))
             }
         }
-    }
+    }*/
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.nav_menu, menu)
@@ -277,33 +278,35 @@ class MainActivity : AppCompatActivity() {
             p1: VoiceEventListener.ResultType?,
             p2: String?
         ) {
-
+            Log.d("Test", "onSpeechRecognizeComplete: $p0, json: $p1")
         }
 
         override fun onSpeech2TextComplete(p0: Boolean, p1: String?) {
-            Log.d("Test", "onSpeech2TextComplete: $p0, json: $p1")
+
         }
 
         override fun onMixUnderstandComplete(p0: Boolean, p1: VoiceEventListener.ResultType?, p2: String?) {
 
             val result_string = VoiceResultJsonParser.parseVoiceResult(p2)
 
-            if (result_string.contains("Weather")) {
+            result_string.lowercase(Locale.getDefault())
+
+            if (result_string.contains("weather")) {
                 startActivity(Intent(applicationContext, WeatherMain::class.java))
             }
-            if (result_string.contains("Alarm")) {
+            if (result_string.contains("alarm")) {
                 startActivity(Intent(applicationContext, AlarmClockMain::class.java))
             }
-            if (result_string.contains("Music")) {
+            if (result_string.contains("music")) {
                 startActivity(Intent(applicationContext, ListMusicActivity::class.java))
             }
-            if (result_string.contains("Video")) {
+            if (result_string.contains("video")) {
                 startActivity(Intent(applicationContext, ListVideoActivity::class.java))
             }
-            if (result_string.contains("Chat")) {
+            if (result_string.contains("speaking")) {
                 startActivity(Intent(applicationContext, ChatBoxActivity::class.java))
             }
-            if (result_string.contains("Youtube")) {
+            if (result_string.contains("youtube")) {
                 startActivity(Intent(applicationContext, YoututbevideoMainActivity::class.java))
             }
 
@@ -325,7 +328,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onGrammarState(p0: Boolean, p1: String?) {
-            mRobotAPI.startMixUnderstand()
             Log.d("Test", "GrammerState $p1")
         }
 

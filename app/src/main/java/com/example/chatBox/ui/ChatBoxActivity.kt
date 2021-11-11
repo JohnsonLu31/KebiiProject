@@ -43,30 +43,33 @@ class ChatBoxActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.chatbox_main)
 
-        //NUWA SETTING
-        /*mClientId = IClientId(this.packageName)
+        //NUWA SETTING------------------------------------------
+        mClientId = IClientId(this.packageName)
         mRobotAPI = NuwaRobotAPI(this, mClientId)
 
         Log.d("Test", "register EventListener")
-        mRobotAPI.registerRobotEventListener(robotEventListener)*/
-
+        mRobotAPI.registerRobotEventListener(robotEventListener)
+        //-------------------------------------------------------
 
         recycleView()
 
         clickEvents()
+
 
         customMessage("Hello! Today you're speaking with ${botlist[random]}, how may I help?")
 
 
 
         //TTS can't use in NUWA system
-        textToSpeech = TextToSpeech(applicationContext) { p0 ->
+        /*textToSpeech = TextToSpeech(applicationContext) { p0 ->
             if (p0 == TextToSpeech.SUCCESS) {
                 textToSpeech.language = Locale.ENGLISH
                 textToSpeech.setSpeechRate(0.5f)
                 textToSpeech.speak("Hello! Today you're speaking with ${botlist[random]}, how may I help?", TextToSpeech.QUEUE_FLUSH, null)
             }
-        }
+        }*/
+
+
 
     }
 
@@ -165,7 +168,7 @@ class ChatBoxActivity : AppCompatActivity() {
 
 
     //NUWA
-    /*override fun onDestroy() {
+    override fun onDestroy() {
         super.onDestroy()
         mRobotAPI.release()
     }
@@ -176,7 +179,10 @@ class ChatBoxActivity : AppCompatActivity() {
 
             mRobotAPI.registerVoiceEventListener(voiceEventListener)
 
+            //Nuwa TTS
             mRobotAPI.startTTS("Hello! Today you're speaking with ${botlist[random]}, how may I help?")
+
+
         }
 
         override fun onWikiServiceStop() {
@@ -296,6 +302,7 @@ class ChatBoxActivity : AppCompatActivity() {
 
         override fun onTTSComplete(p0: Boolean) {
 
+            Log.d("Test", "TTS Complete")
         }
 
         override fun onSpeechRecognizeComplete(
@@ -344,7 +351,5 @@ class ChatBoxActivity : AppCompatActivity() {
 
         }
 
-    }*/
-
-
+    }
 }
